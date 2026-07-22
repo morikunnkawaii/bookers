@@ -1,11 +1,14 @@
 class BooksController < ApplicationController
   def new
-    @book = Book.new <!-- インスタンス変数 -->
+    @book = List.new 
   end
 
   def create
-    book = Book.new(list_params)
-
+    book = List.new(list_params)     #データ受け取り新規作成インスタンス作成
+    book.save                    <!-- データをデータベースに保存 -->
+    redirect_to '/'                 #top画面へ
+  end
+   
 
   def index
   end
@@ -15,4 +18,8 @@ class BooksController < ApplicationController
 
   def edit
   end
+
+  private #ストロングパラメータでセキュリティ強化
+  def list_params
+    params.require(:book).permit(:title, :body)
 end
