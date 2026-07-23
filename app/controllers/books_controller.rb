@@ -6,7 +6,7 @@ class BooksController < ApplicationController
   def create
     book = Book.new(list_params)     #データ受け取り新規作成インスタンス作成
     book.save                        #データをデータベースに保存
-    redirect_to root_path                  #top画面へ
+    redirect_to book_path(book.id)                  #showへ
   end
    
 
