@@ -2,6 +2,7 @@
 <% @books.each do |book| %>
   <p>title</p>
   <span><%= book.title %></span>
+  <%= link_to 'Show',"/books/#{book.id}" %> <!-- aタグでshowを作るだけではidタグには飛べなかった為、link_toで実施。link_toの後は文字を打つなら''で囲まないと無理と思われる。 -->
 
   <p>body</p>
   <span><%= book.body %></span>
