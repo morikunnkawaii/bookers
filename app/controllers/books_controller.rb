@@ -1,7 +1,4 @@
 class BooksController < ApplicationController
-  def new
-    @book = Book.new 
-  end
 
   def create
     book = Book.new(list_params)     #データ受け取り新規作成インスタンス作成
@@ -12,6 +9,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all  #テーブルに保存されたデータを全て取得
+    @book = Book.new
   end
 
   def show
