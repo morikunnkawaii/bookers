@@ -29,12 +29,21 @@
 <% end %>
 
 <h1>Books</h1>
+<% if @book.errors.any? %>
+    <%= @book.errors.count %>error
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+<% end %>
+
 <h2>New book</h2>
 <%= form_with model: @book do |f| %>
-  <h4>Title<h4>
+  <h4>本のタイトル<h4>
   <%= f.text_field :title %>  <!-- titleに単一行のテキストフィールド -->
 
-  <h4>Body<h4>
+  <h4>感想<h4>
   <%= f.text_field :body %>  <!-- bodyに複数行のテキストフィールド 今回課題チェックシートの文言的にfield？ -->
 
   <%= f.submit 'Create Book' %>  <!-- 送信ボタン-->
