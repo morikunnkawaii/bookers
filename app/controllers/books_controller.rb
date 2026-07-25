@@ -27,10 +27,14 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
-  def update
-    book = Book.find(params[:id])
-    book.update(list_params)
-    redirect_to book_path(book.id)
+  def update                               #更新機能
+    @book = Book.find(params[:id])
+    if  @book.update(list_params)
+        redirect_to book_path(@book.id)
+        flash[:notice] = "Book was successfully created"
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
