@@ -48,12 +48,16 @@
 
 <h2>New book</h2>
 <%= form_with model: @book do |f| %>
-  <h4>本のタイトル<h4>
-  <%= f.text_field :title %>  <!-- titleに単一行のテキストフィールド -->
-
-  <h4>感想<h4>
-  <%= f.text_field :body %>  <!-- bodyに複数行のテキストフィールド 今回課題チェックシートの文言的にfield？ -->
-
-  <%= f.submit 'Create Book' %>  <!-- 送信ボタン-->
+  <div>
+    <h4>本のタイトル<h4>
+    <%= f.text_field :title %>  <!-- titleに単一行のテキストフィールド -->
+  </div>
+  <div>
+    <h4>感想<h4>
+    <%= f.text_field :body %>  <!-- bodyに複数行のテキストフィールド 今回課題チェックシートの文言的にfield？ -->
+  </div>
+  <div>
+    <%= f.submit 'Create Book' %>  <!-- 送信ボタン-->
+  </div>
 <% end %>
 
