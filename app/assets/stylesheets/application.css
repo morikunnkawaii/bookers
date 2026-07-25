@@ -8,3 +8,115 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ }
+
+ body {
+  margin: 33px;
+  font-size: 13px;
+  color: #333;
+  background-color: #fff;
+  font-family: verdana, arial, helvetica, sans-serif;
+  line-height: 18px;
+ }
+
+ h1 {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+ }
+
+ p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end:  1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  unicode-bidi: isolate;
+ }
+
+ p, td {
+  font-size: 13px;
+  font-family: verdana, arial, helvetica, sans-serif;
+  line-height: 18px;
+  margin: 33px;
+ }
+
+ table {
+  display: table;
+  box-sizing: border-box;
+  border-collapse: separate;
+  text-indent: initial;
+  unicode-bidi: isolate;
+  border-spacing: 2px;
+ }
+
+ thead {
+  display: table-header-group;
+  vertical-align: middle;
+  unicode-bidi: isolate;
+  break-inside: if(media(overflow-blok: paged): avoid;);
+  border-color: inherit;
+ }
+
+ tr {
+  display: table-row;
+  vertical-align: inherit;
+  unicode-bidi: isolate;
+  border-color: inherit;
+ }
+
+ th{
+  padding-bottom: 5px;
+  display: table-cell;
+  vertical-align: inherit;
+  font-weight: bold;
+  text-align: -internal-center;
+  unicode-bidi: isolate;
+ }
+
+ tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  unicode-bidi: isolate;
+  border-color: inherit;
+ }
+
+ td {
+  padding-bottom: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
+ }
+
+ div {
+  display: block;
+  unicode-bidi: isolate;
+ }
+
+ div.field, div.submit {
+  margin-bottom: 10px;
+ }
+
+ h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+ }
+
+ a {
+  color: #000;
+ }

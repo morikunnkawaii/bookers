@@ -1,40 +1,39 @@
 
 
 <h1>Books</h1>
-<% @books.each do |book| %>
-  <table>
+<table>
     <thead>
       <tr>                   <!-- 行 -->
-        <th>本のタイトル</th> <th>感想</th>  <!-- 見出し -->
+        <th>本のタイトル</th> <th>感想</th> <th colspan="3"></th  <!-- 見出し -->
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>
-         <span><%= book.title %></span>
-        </td>
-    
-        <td>
-          <span><%= book.body %></span>
-        </td>
+      <% @books.each do |book| %>
+          <tr>
+            <td>
+            <span><%= book.title %></span>
+            </td>
+        
+            <td>
+              <span><%= book.body %></span>
+            </td>
 
-        <td>
-          <%= link_to "Show",book_path(book.id) %> <!-- aタグでshowを作るだけではidタグには飛べなかった為、link_toで実施。link_toの後は文字を打つなら''か""で囲まないと無理と思われる。 -->
-        </td>
+            <td>
+              <%= link_to "Show",book_path(book.id) %> <!-- aタグでshowを作るだけではidタグには飛べなかった為、link_toで実施。link_toの後は文字を打つなら''か""で囲まないと無理と思われる。 -->
+            </td>
 
-        <td>
-          <%= link_to "edit", edit_book_path(book.id) %> <!-- 引数(book.id)で(@book.id)だとダメだった。おそらく配列bookを取り出すのに@bookでやっていたからおかしくなったと思われる --!>
-        </td>
+            <td>
+              <%= link_to "edit", edit_book_path(book.id) %> <!-- 引数(book.id)で(@book.id)だとダメだった。おそらく配列bookを取り出すのに@bookでやっていたからおかしくなったと思われる --!>
+            </td>
 
-        <td>
-          <%= link_to "destroy", book_path(book), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-        </td>
-      </tr>
+            <td>
+              <%= link_to "destroy", book_path(book), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            </td>
+          </tr>
+      <% end %>
     </tbody>
-  </table>   <!-- ここがなかったせいでクリエイトがおかしかった -->
-<% end %>
+</table>
 
-<h1>Books</h1>
 <% if @book.errors.any? %>
   <%= @book.errors.count %>error
   <ul>
@@ -46,15 +45,15 @@
 
 <h2>New book</h2>
 <%= form_with model: @book do |f| %>
-  <div>
+  <div class="field">
     <h4>本のタイトル<h4>
     <%= f.text_field :title %>  <!-- titleに単一行のテキストフィールド -->
   </div>
-  <div>
+  <div class="field">
     <h4>感想<h4>
     <%= f.text_field :body %>  <!-- bodyに複数行のテキストフィールド 今回課題チェックシートの文言的にfield？ -->
   </div>
-  <div>
+  <div class="submit">
     <%= f.submit 'Create Book' %>  <!-- 送信ボタン-->
   </div>
 <% end %>
