@@ -8,8 +8,8 @@ class BooksController < ApplicationController
    
 
   def index
-    @books = Book.all  #テーブルに保存されたデータを全て取得
     @book = Book.new
+    @books = Book.all  #テーブルに保存されたデータを全て取得
   end
 
   def show
@@ -29,7 +29,7 @@ class BooksController < ApplicationController
   def destroy
     book = Book.find(params[:id])
     book.destroy
-    redirect_to '/books'
+    redirect_to "/books"
   end
 
   private #ストロングパラメータでセキュリティ強化

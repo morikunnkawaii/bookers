@@ -1,12 +1,31 @@
 <h1>Books</h1>
 <% @books.each do |book| %>
-  <p>title</p>
-  <span><%= book.title %></span>
-  <%= link_to "Show",book_path(book.id) %> <!-- aタグでshowを作るだけではidタグには飛べなかった為、link_toで実施。link_toの後は文字を打つなら''か""で囲まないと無理と思われる。 -->
+  <table>
+    <tr>                   <!-- 行 -->
+      <th>本のタイトル</th> <th>感想</th>  <!-- 見出し -->
+    </tr>
 
-  <p>body</p>
-  <span><%= book.body %></span>
+    <tr>
+      <td>
+       <span><%= book.title %></span>
+      </td>
+    
+      <td>
+        <span><%= book.body %></span>
+      </td>
 
+      <td>
+        <%= link_to "Show",book_path(book.id) %> <!-- aタグでshowを作るだけではidタグには飛べなかった為、link_toで実施。link_toの後は文字を打つなら''か""で囲まないと無理と思われる。 -->
+      </td>
+
+      <td>
+        <%= link_to "edit", edit_book_path(book.id) %> <!-- 引数(book.id)で(@book.id)だとダメだった。おそらく配列bookを取り出すのに@bookでやっていたからおかしくなったと思われる --!>
+      </td>
+
+      <td>
+        <%= link_to "destroy", book_path(book), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      </td>
+    </tr>
 <% end %>
 
 <h1>Books</h1>
@@ -20,4 +39,4 @@
 
   <%= f.submit 'Create Book' %>  <!-- 送信ボタン-->
 <% end %>
-<%= link_to "destroy", books_path(@book), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
