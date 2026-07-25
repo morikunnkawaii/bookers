@@ -20,4 +20,4 @@
 
   <%= f.submit 'Create Book' %>  <!-- 送信ボタン-->
 <% end %>
-
+<%= link_to "destroy", books_path(@book), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
