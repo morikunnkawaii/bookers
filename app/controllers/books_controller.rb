@@ -38,9 +38,11 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    book = Book.find(params[:id])
-    book.destroy
-    redirect_to books_path
+    @book = Book.find(params[:id])
+    if @book.destroy
+       redirect_to books_path
+       flash[:notice] = "Book was successfully created"
+    end
   end
 
   private #ストロングパラメータでセキュリティ強化
