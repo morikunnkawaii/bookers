@@ -35,7 +35,11 @@
 </table>
 
 <% if @book.errors.any? %>
-  <%= @book.errors.count %>error
+  <% if @book.errors.count == 1 %>
+   <%= @book.errors.count %>error
+   <% else %>
+    <%= @book.errors.count %>errors
+  <% end %>
   <ul>
     <% @book.errors.full_messages.each do |message| %>
       <li><%= message %></li>

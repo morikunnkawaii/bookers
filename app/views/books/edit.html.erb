@@ -1,7 +1,7 @@
 <h1>Editing Book</h1>
 
 <% if @book.errors.any? %>
-  <%= @book.errors.count %>error
+  <%= pluralize(@book.errors.count, 'error') %>  <!-- pluralize メソッド 数値と単語を引数に渡すことで、数に応じた文字列が自動生成される  viewファイルはなるべくifなどを使わずすっきりさせるほうが良い-->
   <ul>
     <% @book.errors.full_messages.each do |message| %>
       <li><%= message %></li>
